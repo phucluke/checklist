@@ -56,7 +56,7 @@ class HomePage extends Component {
                     }
                   : {};
               return (
-                <ListItem key={item.id} title={item.title} style={style}>
+                <ListItem key={item.id} title={`${item.id}. ${item.title}`} style={style}>
                   <Checkbox slot="media"></Checkbox>
                   <Toggle
                     slot="after"

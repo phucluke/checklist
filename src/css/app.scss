@@ -11,9 +11,22 @@
   body {
     margin: 1.6cm;
   }
+
+  #add-more,
+  #print {
+    display: none;
+  }
 }
 
 .block-title {
   font-size: 18px !important;
   color: #000000 !important;
+}
+
+#add-more {
+  float: left;
+}
+
+#print i {
+  padding-right: 5px;
 }

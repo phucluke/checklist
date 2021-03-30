@@ -17,20 +17,23 @@ export function codeReviewList() {
 - Internal file path disclosure
 `;
 
+  let categories = [];
   let list = [];
   let currentCategory = "Uncategorized";
+  let id = 0;
 
   for (let line of rawList.split("\n")) {
     line = line.trim();
     if (line.substr(0, 1) === "#") {
       currentCategory = line.replace("#", "").trim();
-      list[currentCategory] = [];
+      categories.push(currentCategory);
     }
     if (line.substr(0, 1) === "-") {
       line = line.replace("-", "").trim();
-      list[currentCategory].push(line);
+      list.push({ id, title: line, category: currentCategory });
+      id++;
     }
   }
 
-  return list;
+  return { categories: categories, list: list };
 }

@@ -1,7 +1,7 @@
 {
-  "name": "Checklist",
-  "short_name": "Checklist",
-  "description": "Checklist",
+  "name": "Code Review Checklist",
+  "short_name": "Code Review Checklist",
+  "description": "Code Review Checklist",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",

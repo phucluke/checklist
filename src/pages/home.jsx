@@ -1,19 +1,9 @@
 import React, { Component } from "react";
-import {
-  Page,
-  Navbar,
-  NavTitle,
-  NavRight,
-  BlockTitle,
-  List,
-  ListItem,
-  Button,
-  Toggle,
-  Checkbox,
-  Chip,
-} from "framework7-react";
+import { Page, Navbar, NavTitle, NavRight, BlockTitle, List, ListItem, Button, Toggle } from "framework7-react";
 
 import { codeReviewList } from "../services/code-review";
+import ReactToPrint, { PrintContextConsumer } from "react-to-print";
+
 class HomePage extends Component {
   constructor() {
     super();
@@ -52,7 +42,7 @@ class HomePage extends Component {
               const className = item.apply === false ? "not-applicable" : "";
               return (
                 <ListItem key={item.id} title={`${item.id}. ${item.title}`} className={className}>
-                  {item.apply ? <Checkbox slot="media"></Checkbox> : <span slot="media">N/A</span>}
+                  {item.apply ? <input type="checkbox" slot="media" /> : <span slot="media">N/A</span>}
                   <Toggle
                     slot="after"
                     defaultChecked={item.apply}
@@ -70,15 +60,27 @@ class HomePage extends Component {
         <Navbar sliding={false}>
           <NavTitle>Code Review Checklist</NavTitle>
           <NavRight>
-            <Button iconF7="printer" onClick={() => window.print()} id="print" className="not-print">
-              Print
-            </Button>
+            <ReactToPrint content={() => this.componentRef}>
+              <PrintContextConsumer>
+                {({ handlePrint }) => (
+                  <Button iconF7="printer" onClick={handlePrint} id="print" className="not-print">
+                    Print
+                  </Button>
+                )}
+              </PrintContextConsumer>
+            </ReactToPrint>
           </NavRight>
         </Navbar>
 
         {/* <Toolbar bottom></Toolbar> */}
-
-        {list.map((item) => item)}
+        <div ref={(el) => (this.componentRef = el)} className="print-container" style={{ margin: "0", padding: "0" }}>
+          {list.map((item) => (
+            <>
+              <div className="page-break" />
+              <div>{item}</div>
+            </>
+          ))}
+        </div>
       </Page>
     );
   }

@@ -5,7 +5,7 @@
     "pwa",
     "cordova"
   ],
-  "name": "Checklist",
+  "name": "Code Review Checklist",
   "framework": "react",
   "template": "single-view",
   "bundler": "webpack",

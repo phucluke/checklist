@@ -2,7 +2,7 @@
   "name": "checklist",
   "private": true,
   "version": "1.0.0",
-  "description": "Checklist",
+  "description": "Code Review Checklist",
   "repository": "",
   "license": "UNLICENSED",
   "scripts": {
@@ -32,6 +32,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-to-print": "^2.12.3",
     "skeleton-elements": "^3.3.0",
     "swiper": "^6.5.0"
   },

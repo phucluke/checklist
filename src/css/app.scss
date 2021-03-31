@@ -4,19 +4,6 @@
 }
 
 /* Your app custom styles here */
-@media print {
-  @page {
-    margin: 0;
-  }
-  body {
-    margin: 1.6cm;
-  }
-
-  .not-print {
-    display: none;
-  }
-}
-
 .block-title {
   font-size: 18px !important;
   color: #000000 !important;
@@ -34,7 +21,45 @@
   white-space: unset;
 }
 
-.not-applicable .item-title {
-  text-decoration: line-through;
-  color: gray;
+.not-applicable {
+  span {
+    color: gray;
+    margin-left: -5px;
+  }
+  .item-title {
+    text-decoration: line-through;
+    color: gray;
+  }
+}
+
+input[type="checkbox"] {
+  transform: scale(1.4);
+}
+
+@media all {
+  .page-break {
+    display: none;
+  }
+}
+
+@media print {
+  html,
+  body {
+    height: initial !important;
+    overflow: initial !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+@media print {
+  .page-break {
+    margin-top: 1rem;
+    display: block;
+    page-break-before: auto;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 16mm;
 }

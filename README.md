@@ -1,4 +1,4 @@
-# Checklist
+# Code Review Checklist
 
 ## Framework7 CLI Options
 
@@ -12,7 +12,7 @@ Framework7 app created with following options:
     "pwa",
     "cordova"
   ],
-  "name": "Checklist",
+  "name": "Code Review Checklist",
   "framework": "react",
   "template": "single-view",
   "bundler": "webpack",

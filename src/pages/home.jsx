@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Page, Navbar, NavTitle, NavRight, BlockTitle, List, ListItem, Button, Toggle } from "framework7-react";
+import { Page, Navbar, NavTitle, NavRight, BlockTitle, List, ListItem, Button, Toggle, Block } from "framework7-react";
 
 import { codeReviewList } from "../services/code-review";
 import ReactToPrint, { PrintContextConsumer } from "react-to-print";
@@ -63,7 +63,7 @@ class HomePage extends Component {
             <ReactToPrint content={() => this.componentRef}>
               <PrintContextConsumer>
                 {({ handlePrint }) => (
-                  <Button iconF7="printer" onClick={handlePrint} id="print" className="not-print">
+                  <Button iconF7="printer" onClick={handlePrint} id="print">
                     Print
                   </Button>
                 )}
@@ -71,16 +71,23 @@ class HomePage extends Component {
             </ReactToPrint>
           </NavRight>
         </Navbar>
-
-        {/* <Toolbar bottom></Toolbar> */}
-        <div ref={(el) => (this.componentRef = el)} className="print-container" style={{ margin: "0", padding: "0" }}>
-          {list.map((item) => (
-            <>
-              <div className="page-break" />
-              <div>{item}</div>
-            </>
-          ))}
-        </div>
+        <Block>
+          <h3>
+            Credit{" "}
+            <a href="https://www.michaelagreiler.com/code-review-checklist-2/">
+              https://www.michaelagreiler.com/code-review-checklist-2
+            </a>
+          </h3>
+          {/* <Toolbar bottom></Toolbar> */}
+          <div ref={(el) => (this.componentRef = el)} className="print-container" style={{ margin: "0", padding: "0" }}>
+            {list.map((item) => (
+              <>
+                <div className="page-break" />
+                <div>{item}</div>
+              </>
+            ))}
+          </div>
+        </Block>
       </Page>
     );
   }

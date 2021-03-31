@@ -36,6 +36,11 @@ input[type="checkbox"] {
   transform: scale(1.4);
 }
 
+.block-title {
+  color: blue !important;
+  line-height: unset;
+}
+
 @media all {
   .page-break {
     display: none;

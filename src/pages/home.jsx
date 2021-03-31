@@ -10,6 +10,7 @@ import {
   Button,
   Toggle,
   Checkbox,
+  Chip,
 } from "framework7-react";
 
 import { codeReviewList } from "../services/code-review";
@@ -48,16 +49,10 @@ class HomePage extends Component {
           {this.state.list
             .filter((item) => item.category === category)
             .map((item) => {
-              const style =
-                item.apply === false
-                  ? {
-                      textDecoration: "line-through",
-                      color: "gray",
-                    }
-                  : {};
+              const className = item.apply === false ? "not-applicable" : "";
               return (
-                <ListItem key={item.id} title={`${item.id}. ${item.title}`} style={style}>
-                  <Checkbox slot="media"></Checkbox>
+                <ListItem key={item.id} title={`${item.id}. ${item.title}`} className={className}>
+                  {item.apply ? <Checkbox slot="media"></Checkbox> : <span slot="media">N/A</span>}
                   <Toggle
                     slot="after"
                     defaultChecked={item.apply}
@@ -75,7 +70,7 @@ class HomePage extends Component {
         <Navbar sliding={false}>
           <NavTitle>Code Review Checklist</NavTitle>
           <NavRight>
-            <Button iconF7="printer" onClick={() => window.print()} id="print">
+            <Button iconF7="printer" onClick={() => window.print()} id="print" className="not-print">
               Print
             </Button>
           </NavRight>

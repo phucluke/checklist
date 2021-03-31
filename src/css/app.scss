@@ -12,8 +12,7 @@
     margin: 1.6cm;
   }
 
-  #add-more,
-  #print {
+  .not-print {
     display: none;
   }
 }
@@ -33,4 +32,9 @@
 
 .list .item-title {
   white-space: unset;
+}
+
+.not-applicable .item-title {
+  text-decoration: line-through;
+  color: gray;
 }

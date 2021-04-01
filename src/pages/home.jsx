@@ -74,8 +74,8 @@ class HomePage extends Component {
         <Block>
           <h3>
             Credit{" "}
-            <a href="https://www.michaelagreiler.com/code-review-checklist-2/">
-              https://www.michaelagreiler.com/code-review-checklist-2
+            <a href="https://www.michaelagreiler.com/code-review-checklist-2/" target="_blank">
+              https://www.michaelagreiler.com/code-review-checklist-2/
             </a>
           </h3>
           {/* <Toolbar bottom></Toolbar> */}
